@@ -1,2 +1,4 @@
 # DShield_S3_LogUpload
 A simple python script that uploads the Dshield logs on a pi 3 sensor to a user's AWS S3 bucket for analysis. 
+
+The purpose of uploading the logs of the pi 3 sensor to a S3 bucket is to provide a means of analyzing the data of specific sensors of a users choice. AWS is an excellent platform for cloud applications, and so it was chosen to host a suite of network log utilities. The script is short and sweet, and is meant to be automated by adding its execution to a cron job(see documentation). The only dependency is the boto3 library that allows automation of AWS tasks using python. The script works on any server capable of running python, only the log location variable needs to be changed to reflect the dshield installation environment(see documentation). For instance although created for the pi 3 sensor, the development environment was actually an Ubuntu VM. 
