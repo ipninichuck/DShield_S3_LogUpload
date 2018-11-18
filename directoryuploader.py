@@ -10,7 +10,7 @@ import sys
 now = datetime.datetime.now()
 bucketname = 'serveractivityuploads'
 sourceDir = 
-deviceid = 
+deviceid = 'ipn2%s' % now
 
 #We will make a list of the file names to be uploaded
 uploadFileNames = []
@@ -21,6 +21,6 @@ for (sourceDir, dirname, filename) in os.walk(sourceDir):
 #For loop goes through each file and uploads it to s3
 for filename in uploadFileNames:
     sourcepath = os.path.join(sourceDir + '/' + filename) 
-    logname = deviceid + '_' + filename + '_' + now   
+    logname = deviceid + '_' + filename   
     s3 = boto3.resource('s3',)
     s3.Bucket(bucketname).upload_file(sourcepath, logname)
